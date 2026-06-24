@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+    text-align:center;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.card{
+    width:90%;
+    max-width:400px;
+    background:rgba(255,255,255,0.1);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:#ffcc00;
+    font-size:18px;
+    cursor:pointer;
+}
+
+h1{
+    animation:fade 1s ease;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:red;
+    top:-10px;
+    animation:fall 4s linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1 id="title">🎁 Birthday Surprise</h1>
+    <p id="message">Ready for something special?</p>
+    <button onclick="nextStep()">Start</button>
+</div>
+
+<script>
+
+let step=0;
+
+const surprises=[
+{
+title:"🤫 Secret Message",
+msg:"Someone amazing is having a birthday today..."
+},
+{
+title:"😎 Best Friend Alert",
+msg:"hey idiot..You are one of the coolest people I've ever met pandhi."
+},
+{
+title:"😂 Memory Check",
+msg:"Thanks for all the laughs, crazy moments, and unforgettable memories.i ever met in my life we have almost 2 years of strong friendship"
+},
+{
+title:"💪 Appreciation",
+msg:"Your support, loyalty, and friendship mean a lot to me.ur the bestest person ever i met loseuuuuu"
+},
+{
+title:"🎂 Almost There...",
+msg:"Get ready for your birthday message!pandhi....bestuuuuuuuuuuuuuu"
+},
+{
+title:"🎉 HAPPY BIRTHDAY RAH LOSEUUUU! 🎉",
+msg:"Wishing you success, happiness, good health, and endless adventures. Have an amazing year ahead!hey idiot🐷 happy birthday you are best psycho😁 i ever met in my life we have almost 2 years of strong friendship but you are not my best friend you are more than that we both are two different individuals but sometimes we behave like same soul with different body in many situations we decided to break our bond we almost didn't talk for months we have so many misunderstandings, miscommunications, arguments at the same time we both have that connection to understand eachother love,care, highs in our friendship and Lowest lows too but we never gave up on eachother whenever we have a conversation we always roast eachother in very rare cases we talk nicely but you are the person i found in my college days you gone through alot of pain that no one can understand but you stood strong and i supported as much as i can may be sometimes i am not a nice person to you but in my every thought i have a great responsibility and concern about you of things to say but if love can describe in words🥹🥺happy birthday my best friend 🤍🐷💗 keep smiling always be happy enjoy your special day vth more happiness ☺️ all ur dreams come true 🙌happy ga undu manchiga chadhuduvuko God bless you my child 😁ur the mostest kind hearted person and my family also 👀💗nvu naku chala support estav dhairyam esthav eppdu happy ga unchutav 🥹nvu unte aa dhairyam haa veru...oka true person dhorikaru no nonsense no bad way to talk to me ur my protection...nvu nannu oka amma la care chetsav protect chesthav 🥺😘ur my bestestttttt frnd nvu best friend ana bonding ki chala nayam chesthav vere ga undakunda eppdu frnd ga untav thappu ga undakunda manchi way lo natho untav amma la chuskuntav💫 parents ki value estsav kopam padvi 🥺😘nannu oka gajubommma la chuskuntav 👀niku manchi future undali raa manchi amayyi Ravali ni life loki baga chusukovali ninnu happy va undali miru i wish I care I love I scarify to you anything any time ,,,,iam always there for you in any situation rah anytime anyday any hourAny time also ur my bngrm.....ee bond ilane undali future lo kuda evvaru vidakottakudadhu nvu ela ante o my frnd movie lo frnds laaa untavuu🥺😘ala manalai vidakatakudadhu anukuntuna 😌🥹💗what ever it may be u always my special one daa 🤍🐷pandhi...Hey pandhi it's ur birthday happy to see u rey pandhi🥺🤍🐷i wanna see uu sucessful in ur life in future 🥺💫💯two bodies but one soul la untam ippudo eppdu happy gane undali manam godavalu rakunda pelli ayaka kuda mana partners oppukunu valatho Kalisi happy ga undaliOnce again happiest birthday rah pandhi 🥺🥺😘 nannu eppatiki vadhalaku plzz 🥺baga chesuko birthday💗🐷🤍💯😎💖🫀👣🫂🥺🙌👀🥹😻🥰 "
+}
+];
+
+function nextStep(){
+
+if(step<surprises.length){
+document.getElementById("title").innerHTML=surprises[step].title;
+document.getElementById("message").innerHTML=surprises[step].msg;
+step++;
+
+if(step===surprises.length){
+createConfetti();
+}
+}
+}
+
+function createConfetti(){
+
+for(let i=0;i<80;i++){
+
+let c=document.createElement("div");
+c.classList.add("confetti");
+
+c.style.left=Math.random()*100+"vw";
+
+const colors=["red","yellow","blue","green","pink","orange"];
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+c.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(c);
+}
+}
+</script>
+
+</body>
+</html>
